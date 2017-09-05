@@ -1,0 +1,30 @@
+{
+  "name": "nexta",
+  "version": "1.0.0",
+  "description": "nexta homepage",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "nodemailer": "^4.1.0",
+    "pug": "^2.0.0-rc.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sandwood/nexta.git"
+  },
+  "keywords": [
+    "donkeydocter",
+    "1708"
+  ],
+  "author": "sandwood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sandwood/nexta/issues"
+  },
+  "homepage": "https://github.com/sandwood/nexta#readme"
+}
