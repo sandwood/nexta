@@ -27,20 +27,6 @@
       $('.scrollspy').scrollSpy({
         scrollOffset: 0
       });      
-      var updated = 0,
-        st;
-      $('body').on({
-        'touchmove': function(e) {
-          st = $(this).scrollTop();
-          if (st > updated) {
-            alert('down22');
-          } else {
-            alert('up22');
-          }
-          updated = st;
-        }
-      });
-
     });
 
     function scroll_event() {
