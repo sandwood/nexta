@@ -30,9 +30,8 @@ dd{
 h2{
     margin: 0;
     padding: 0;
-    font-size: 44.9px;
+    font-size: 33.6px;
     color: #3a3a3a;
-    line-height: 4.38;
     letter-spacing: -1.8px;
 }
 h2 span{
@@ -43,7 +42,7 @@ h2 span{
     position: fixed;
     right: 0;
     top: 37vh;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
     z-index: 100;
     border: 1px solid #607213;
@@ -54,8 +53,8 @@ h2 span{
     transition: color 500ms;
 }
 .nav ul li{
-    width: 75px;
-    height: 76px;
+    width: 57px;
+    height: 57px;
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -71,7 +70,7 @@ h2 span{
 }
 .nav .facebook svg{
     display: block;
-    width: 39px;
+    width: 29.25px;
     fill: #fff;
 }
 .nav .facebook{
@@ -86,20 +85,20 @@ h2 span{
 }
 .about_top .main_logo{
     position: absolute;
-    top: 65px;
+    top: 32.5px;
     z-index: 10;
     text-align: center;
     width: 100%;
 }
 .about_top .about_bg{
     width: 100%;
-    height: 700px;
+    height: 525px;
     background: url(../img/main-pic@2x.jpg) no-repeat;
     background-size: cover;
 }
 .about_top .about_txt{
     width: 100%;
-    height: 700px;
+    height: 525px;
     position: absolute;
     z-index: 1;
     left: 0;
@@ -114,14 +113,14 @@ h2 span{
 }
 .about_bot .about_bg{
     width: 100%;
-    height: 321px;
+    height: 250px;
     background: url(../img/about-pic-02@2x.jpg) no-repeat;
     background-size: cover;
 }
 .about_bot .about_content{
     float: initial;
     width: 100%;
-    padding-top: 50px;
+    padding-top: 37.5px;
     max-width: 765px;
     margin: 0 auto;
 }
@@ -136,18 +135,18 @@ h2 span{
 }
 .about_bot .bar{
     margin-top: 37px;
-    margin-bottom: 31px;
+    margin-bottom: 22.5px;
     margin-left: auto;
     margin-right: auto;
-    width: 45px;
-    height: 3px;
+    width: 33.75px;
+    height: 2.25px;
     background-color: #3a3a3a;
 }
 .about_bot .three_icons img:nth-child(2){
-    margin: 0 38px;
+    margin: 0 28.5px;
 }
 .about_bot .about_txt{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.58;
     letter-spacing: -1px;
@@ -160,31 +159,34 @@ h2 span{
     text-align: center;
 }
 .service h2{
-    padding-top: 90px;
-    padding-bottom: 58px;
+    padding-top: 67.5px;
+    padding-bottom: 43.5px;
 }
 .service_top, .service_bot{
     width: 100%;
-    max-width: 1430px;
+    max-width: 1072px;
     margin: 0 auto;
 }
 .service_txt{
     position: relative;
-    margin-top: 42px;
-    margin-bottom: 75px;
+    margin-top: 31.5px;
+    margin-bottom: 56.25px;
+}
+.service_txt:last-child{
+    margin-bottom: 0;
 }
 .service dt{
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 500;
-    line-height: 1.75;
+    line-height: 2.625;
     letter-spacing: -1.6px;
     text-align: left;
     color: #3a3a3a;
 }
 .service dd{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 1.46;
+    line-height: 2.19;
     letter-spacing: -1px;
     text-align: left;
     color: #3a3a3a;
@@ -192,8 +194,8 @@ h2 span{
 .border{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 86px;
-    width: 1344px;
+    margin-top: 64.5px;
+    width: 1008px;
     height: 1px;
     background-color: #bfbfbf;
 }
@@ -203,12 +205,12 @@ h2 span{
     text-align: center;
 }
 .tech h2{
-    margin-top: 97px;
-    padding-bottom: 58px;
+    margin-top: 72.75px;
+    padding-bottom: 43.5px;
 }
 .tech_bg{
     width: 100%;
-    height: 700px;
+    height: 516.5px;
     background: url(../img/tech-pic@2x.jpg) no-repeat;
     background-size: cover;
     position: relative;
@@ -216,28 +218,24 @@ h2 span{
 .history_2016{
     border-left: 5px solid #c05353;
     text-align: left;
-    padding: 2rem 2rem 2rem 0;
-    width: calc(137px + 650px + 3rem);
-    height: calc(311px + 2rem);
+    padding: 21.75px 21.75px 21.75px 0;
     position: absolute;
-    right: 247px;
-    top: 68px;
+    right: 185.25px;
+    top: 51px;
     background-color: rgba(255, 255, 255, 0.7);
 }
 .history_2017{
     border-left: 5px solid #c05353;
     text-align: left;
-    padding: 2rem 2rem 2rem 0;
-    width: calc(137px + 650px + 3rem);
-    height: calc(176px + 2rem);
+    padding: 21.75px 21.75px 21.75px 0;
     position: absolute;
-    right: 247px;
-    bottom: 72px;
+    right: 185.25px;
+    bottom: 54px;
     background-color: rgba(255, 255, 255, 0.7);
 }
 .tech_txt .left{
-    width: 137px;
-    font-size: 30px;
+    width: 102.75px;
+    font-size: 22.5px;
     font-weight: bold;
     line-height: 2.33;
     letter-spacing: -1.2px;
@@ -245,8 +243,8 @@ h2 span{
     color: #3a3a3a;
 }
 .tech_txt .right{
-    width: 650px;
-    font-size: 24px;
+    width: 477.5px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.46;
     letter-spacing: -1px;
@@ -259,20 +257,20 @@ h2 span{
     text-align: center;
 }
 .news h2{
-    margin-top: 93px;
-    margin-bottom: 53px;
+    margin-top: 69.75px;
+    margin-bottom: 39.75px;
 }
 ul.news_wrapper {
-    width: 1430px;
+    width: 1072px;
     margin: 0 auto;
 }
 ul.news_wrapper .row {
-    height: 121px;
+    height: 90.75px;
     text-align: left;
     border: 1px solid #707070;
     padding: 1rem 0;
     /* align-items: center; */
-    margin-bottom: 15px;
+    margin-bottom: 11.25px;
     cursor: pointer;
     transition: background-color 500ms;
 }
@@ -289,7 +287,7 @@ ul.news_wrapper .row:hover .title,
     box-shadow: inset 0 -2px 0 white, inset 0 -3px 0 black
 }
 .news_wrapper .number{
-    font-size: 33px;
+    font-size: 24.75px;
     font-weight: bold;
     line-height: 1.5;
     letter-spacing: -1.3px;
@@ -297,7 +295,7 @@ ul.news_wrapper .row:hover .title,
     color: #3a3a3a;
 }
 .news_wrapper .title{
-    font-size: 28px;
+    font-size: 21px;
     font-weight: bold;
     line-height: 1.75;
     letter-spacing: -1.1px;
@@ -305,7 +303,7 @@ ul.news_wrapper .row:hover .title,
     color: #3a3a3a;
 }
 .news_wrapper .date{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1;
     letter-spacing: -1px;
@@ -314,7 +312,7 @@ ul.news_wrapper .row:hover .title,
 }
 .news_wrapper .content {
     position: relative;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.67;
     letter-spacing: -1px;
@@ -323,7 +321,7 @@ ul.news_wrapper .row:hover .title,
 }
 .news_wrapper .row:last-child{
     background-color: #2f2f2f;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: bold;
     line-height: 2.19;
     letter-spacing: -1.3px;
@@ -340,36 +338,36 @@ ul.news_wrapper .row:hover .title,
     position: relative;
 }
 .contact h2{
-    margin-top: 98px;
-    margin-bottom: 58px;
+    margin-top: 73.5px;
+    margin-bottom: 43.5px;
 }
 .contact .map{
     width: 100%;
     margin: 0 auto;
-    max-width: 1430px;
-    height: 730px;
+    max-width: 1072px;
+    height: 548.25px;
 }
 .contact .info{
     width: 100%;
-    max-width: 1430px;
+    max-width: 1072px;
     margin: 0 auto;
-    padding: 47px;
+    padding: 21px 35.25px;
     border-left: 1px solid #dbdbdb;
     border-right: 1px solid #dbdbdb;
     border-bottom: 1px solid #dbdbdb;
-    margin-bottom: 57px;
+    margin-bottom: 42.75px;
 }
 .contact .info dt{
-    font-size: 30px;
+    font-size: 22.5px;
     font-weight: bold;
     line-height: 1.17;
     letter-spacing: -1.2px;
     text-align: left;
-    height: 59px;
+    height: 44.25px;
     color: #3a3a3a;
 }
 .contact .info dd{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
     line-height: 1.46;
     letter-spacing: -0.2px;
@@ -377,23 +375,24 @@ ul.news_wrapper .row:hover .title,
     color: #3a3a3a;
 }
 .contact .info dd a{
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 500;
-    line-height: 1.46;
+    line-height: 1.75;
     letter-spacing: -0.2px;
     text-align: left;
     color: #3a3a3a;
-    transition: color 500ms;
+    transition: color text-decoration 500ms;
 }
 .contact .info dd a:hover{
     color: #98bf02;
+    text-decoration: underline;
 }
 footer{
     width: 100%;
     text-align: center;
-    padding: 58px;
+    padding: 43.5px;
     margin: 0 auto;
-    font-size: 22px;
+    font-size: 16.5px;
     font-weight: 500;
     line-height: 2.06;
     letter-spacing: -0.9px;
