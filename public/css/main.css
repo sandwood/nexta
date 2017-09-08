@@ -409,6 +409,20 @@ footer span{
   html{
     font-size: 80%;
   }
+  .service_top, .service_bot{
+      max-width: 760px;
+  }
+
+  ul.news_wrapper {
+      width: 760px;
+  }
+  .contact .map{
+    width: 760px;
+    height: 389px;
+  }
+  .contact .info{
+      max-width: 760px;
+  }
 }
 @media screen and (max-width: 767px){
   

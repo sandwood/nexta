@@ -23,10 +23,49 @@
 
   <script>
     $(document).ready(function() {
+      scroll_event();
       $('.scrollspy').scrollSpy({
         scrollOffset: 0
+      });      
+      var updated = 0,
+        st;
+      $('body').on({
+        'touchmove': function(e) {
+          st = $(this).scrollTop();
+          if (st > updated) {
+            alert('down22');
+          } else {
+            alert('up22');
+          }
+          updated = st;
+        }
       });
+
     });
+
+    function scroll_event() {
+      var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel"
+      $(window).bind(mousewheelevt, function(e) {
+        var evt = window.event || e
+        evt = evt.originalEvent ? evt.originalEvent : evt;
+        var delta = evt.detail ? evt.detail * (-40) : evt.wheelDelta
+
+        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
+          if (delta > 0) {
+            console.log('up');
+          } else {
+            console.log('down');
+          }
+        } else {
+          if (delta > 0) {
+            console.log('up2');
+          } else {
+            console.log('down2');
+          }
+        }
+      });
+    }
+
   </script>
 </head>
 
@@ -207,6 +246,7 @@
       slidesPerView: 1,
       grabCursor: true
     });
+
   </script>
 
 </body>
