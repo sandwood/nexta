@@ -19,27 +19,28 @@
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="/static/js/materialize.min.js"></script>
-  <script type="text/javascript" src="/static/js/TweenMax.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/plugins/ScrollToPlugin.min.js"></script>
 
   <script>
     $(function() {
-      $('ul.news_wrapper li.row').click(function(){
+      gotoTop();
+      $('ul.news_wrapper li.row').click(function() {
         var Idx = $(this).index();
-        if(Idx == 0)
+        if (Idx == 0)
           window.open('https://brunch.co.kr/@jupiter/124', '_blank');
-        else if(Idx == 1)
+        else if (Idx == 1)
           window.open('https://brunch.co.kr/@jupiter/123', '_blank');
-        else if(Idx == 2)
+        else if (Idx == 2)
           window.open('https://brunch.co.kr/@jupiter/122', '_blank');
-        else if(Idx == 3)
+        else if (Idx == 3)
           window.open('https://brunch.co.kr/@jupiter/121', '_blank');
-        else if(Idx == 4)
+        else if (Idx == 4)
           window.open('http://news.hankyung.com/article/2016110129011?nv=o', '_blank');
-        else if(Idx == 5)
+        else if (Idx == 5)
           $(this).remove();
       })
 
-      $("html, body").animate({ scrollTop: 0 }, "slow");
       $('.scrollspy').scrollSpy({
         scrollOffset: 0
       });
@@ -56,65 +57,75 @@
       $quickMenu.addClass("active1");
 
       $(window).on("resize.quickMenu", function() {
-          if(this.resizeTO) {
-              clearTimeout(this.resizeTO);
-          }
-          this.resizeTO = setTimeout(function() {
-              $(this).trigger('resizeEnd');
-          }, 500);
+        if (this.resizeTO) {
+          clearTimeout(this.resizeTO);
+        }
+        this.resizeTO = setTimeout(function() {
+          $(this).trigger('resizeEnd');
+        }, 500);
       });
       $(window).trigger("resizeEnd.quickMenu");
 
       $quickMenuA.click(function(event) {
-              event.preventDefault();
-          //}
+        event.preventDefault();
+        //}
       });
 
       function scrollClass(target, direction) {
-          var $target = target;
-          var $targetA = $target.children("a");
-          var targetCnt = $targetA.length;
-        
-          if(direction == "down") {
-              var quickMenuTop = $quickMenu.offset().top + quickMenuHeight;
-          }else if(direction == "up") {
-              var quickMenuTop = $quickMenu.offset().top;
-          }
+        var $target = target;
+        var $targetA = $target.children("a");
+        var targetCnt = $targetA.length;
 
-          for(var i=targetCnt; i>0; i--) {
-              var moveText = $targetA.eq(i-1).attr("href");
-              var targetTop = $(moveText).offset().top;
+        if (direction == "down") {
+          var quickMenuTop = $quickMenu.offset().top + quickMenuHeight;
+        } else if (direction == "up") {
+          var quickMenuTop = $quickMenu.offset().top;
+        }
 
-              if(quickMenuTop >= targetTop) {
-                  $quickMenu.removeClass("active"+previdx);
-                  $quickMenu.addClass("active"+i);
-                  previdx = i;
-                  break;
-              }
+        for (var i = targetCnt; i > 0; i--) {
+          var moveText = $targetA.eq(i - 1).attr("href");
+          var targetTop = $(moveText).offset().top;
+
+          if (quickMenuTop >= targetTop) {
+            $quickMenu.removeClass("active" + previdx);
+            $quickMenu.addClass("active" + i);
+            previdx = i;
+            break;
           }
+        }
       }
       $(window).on("scroll.quickMenu", function() {
-          if(new Date().getTime()-time >= speed) {
-              time = new Date().getTime();
-              var scrollPx = $(this).scrollTop();
-              var myTop = scrollPx + top;
-              var max = $('body').height() - quickMenuHeight;
+        if (new Date().getTime() - time >= speed) {
+          time = new Date().getTime();
+          var scrollPx = $(this).scrollTop();
+          var myTop = scrollPx + top;
+          var max = $('body').height() - quickMenuHeight;
 
-              if(myTop < max) {
-                $quickMenu.css('top', myTop); 
-                if(scrollPx > lastScroll){
-                  //scroll down
-                    scrollClass($quickMenu, "down");
-                }else{
-                    //scroll up
-                    scrollClass($quickMenu, "up");
-                }
-                lastScroll = scrollPx;
-              }
+          if (myTop < max) {
+            $quickMenu.css('top', myTop);
+            if (scrollPx > lastScroll) {
+              //scroll down
+              scrollClass($quickMenu, "down");
+            } else {
+              //scroll up
+              scrollClass($quickMenu, "up");
+            }
+            lastScroll = scrollPx;
           }
+        }
       });
     });
-
+    function gotoTop(){
+      var $window = $(window);
+      setTimeout(function(){
+        TweenMax.to($window, 2, {
+          scrollTo: {
+            y: 0
+          },
+          ease: Power3.easeOut
+        });
+      }, 500);
+    }
   </script>
 </head>
 
@@ -228,7 +239,7 @@
           <span class="date">2017.09.09</span>
         </div>
         <div class="col s7 content">
-           헬스케어 전문기업 주식회사 웰빙 테인먼트의 헬스케어 Hub Heallax Restaurant 에 Smart Farm을 설치하고 관리하고 있습니다.
+          헬스케어 전문기업 주식회사 웰빙 테인먼트의 헬스케어 Hub Heallax Restaurant 에 Smart Farm을 설치하고 관리하고 있습니다.
         </div>
       </li>
       <li class="row">
@@ -295,7 +306,6 @@
       slidesPerView: 1,
       grabCursor: true
     });
-
   </script>
 
 </body>
