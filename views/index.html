@@ -22,35 +22,98 @@
   <script type="text/javascript" src="/static/js/TweenMax.min.js"></script>
 
   <script>
-    $(document).ready(function() {
-      scroll_event();
+    $(function() {
+      $('ul.news_wrapper li.row').click(function(){
+        var Idx = $(this).index();
+        if(Idx == 0)
+          window.open('https://brunch.co.kr/@jupiter/124', '_blank');
+        else if(Idx == 1)
+          window.open('https://brunch.co.kr/@jupiter/123', '_blank');
+        else if(Idx == 2)
+          window.open('https://brunch.co.kr/@jupiter/122', '_blank');
+        else if(Idx == 3)
+          window.open('https://brunch.co.kr/@jupiter/121', '_blank');
+        else if(Idx == 4)
+          window.open('http://news.hankyung.com/article/2016110129011?nv=o', '_blank');
+        else if(Idx == 5)
+          $(this).remove();
+      })
+
+      $("html, body").animate({ scrollTop: 0 }, "slow");
       $('.scrollspy').scrollSpy({
         scrollOffset: 0
-      });      
-    });
-
-    function scroll_event() {
-      var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel"
-      $(window).bind(mousewheelevt, function(e) {
-        var evt = window.event || e
-        evt = evt.originalEvent ? evt.originalEvent : evt;
-        var delta = evt.detail ? evt.detail * (-40) : evt.wheelDelta
-
-        if (document.documentMode || /Edge/.test(navigator.userAgent)) {
-          if (delta > 0) {
-            console.log('up');
-          } else {
-            console.log('down');
-          }
-        } else {
-          if (delta > 0) {
-            console.log('up2');
-          } else {
-            console.log('down2');
-          }
-        }
       });
-    }
+      var $quickMenu = $(".nav");
+      var quickMenuWidth = $quickMenu.width();
+      var quickMenuHeight = $quickMenu.height();
+      var $quickMenuA = $quickMenu.children("a");
+      var previdx = 1;
+      var lastScroll = 0;
+      var speed = 100;
+      var top = parseInt($quickMenu.css("top"));
+      var time = 0;
+
+      $quickMenu.addClass("active1");
+
+      $(window).on("resize.quickMenu", function() {
+          if(this.resizeTO) {
+              clearTimeout(this.resizeTO);
+          }
+          this.resizeTO = setTimeout(function() {
+              $(this).trigger('resizeEnd');
+          }, 500);
+      });
+      $(window).trigger("resizeEnd.quickMenu");
+
+      $quickMenuA.click(function(event) {
+              event.preventDefault();
+          //}
+      });
+
+      function scrollClass(target, direction) {
+          var $target = target;
+          var $targetA = $target.children("a");
+          var targetCnt = $targetA.length;
+        
+          if(direction == "down") {
+              var quickMenuTop = $quickMenu.offset().top + quickMenuHeight;
+          }else if(direction == "up") {
+              var quickMenuTop = $quickMenu.offset().top;
+          }
+
+          for(var i=targetCnt; i>0; i--) {
+              var moveText = $targetA.eq(i-1).attr("href");
+              var targetTop = $(moveText).offset().top;
+
+              if(quickMenuTop >= targetTop) {
+                  $quickMenu.removeClass("active"+previdx);
+                  $quickMenu.addClass("active"+i);
+                  previdx = i;
+                  break;
+              }
+          }
+      }
+      $(window).on("scroll.quickMenu", function() {
+          if(new Date().getTime()-time >= speed) {
+              time = new Date().getTime();
+              var scrollPx = $(this).scrollTop();
+              var myTop = scrollPx + top;
+              var max = $('body').height() - quickMenuHeight;
+
+              if(myTop < max) {
+                $quickMenu.css('top', myTop); 
+                if(scrollPx > lastScroll){
+                  //scroll down
+                    scrollClass($quickMenu, "down");
+                }else{
+                    //scroll up
+                    scrollClass($quickMenu, "up");
+                }
+                lastScroll = scrollPx;
+              }
+          }
+      });
+    });
 
   </script>
 </head>
@@ -151,54 +214,54 @@
       <li class="row">
         <div class="col s1 number">01</div>
         <div class="col s4 title_">
-          <span class="truncate title">넥스트에이,  재배분석기술 인터뷰</span>
-          <span class="date">2017.08.01</span>
+          <span class="truncate title ">포쉬텔, 바이오빌 Smart Farm 사업</span>
+          <span class="date">2017.09.10</span>
         </div>
-        <div class="col s7 content truncate">
-          재배 분석 기술 1종 특허 취득한 한국 최초 스마트팜 농업회사 넥스트에이는 다음달 <br> 에열릴 농업인의 밤에 초청되어 한국의 스마트 농업시대를 이끌어갈 넥스트에이...
+        <div class="col s7 content">
+          포쉬텔, 바이오 빌과 Smart Farm 사업을 추진하고 있습니다.
         </div>
       </li>
       <li class="row">
         <div class="col s1 number">02</div>
         <div class="col s4 title_">
-          <span class="truncate title">넥스트에이,  재배분석기술...</span>
-          <span class="date">2017.08.01</span>
+          <span class="truncate title truncate">Restaurant Smart Farm 설치</span>
+          <span class="date">2017.09.09</span>
         </div>
-        <div class="col s7 content truncate">
-          재배 분석 기술 1종 특허 취득한 한국 최초 스마트팜 농업회사 넥스트에이는 다음달 <br> 에열릴 농업인의 밤에 초청되어 한국의 ...
+        <div class="col s7 content">
+           헬스케어 전문기업 주식회사 웰빙 테인먼트의 헬스케어 Hub Heallax Restaurant 에 Smart Farm을 설치하고 관리하고 있습니다.
         </div>
       </li>
       <li class="row">
         <div class="col s1 number">03</div>
         <div class="col s4 title_">
-          <span class="truncate title">넥스트에이,  재배분석기술 인터뷰</span>
-          <span class="date">2017.08.01</span>
+          <span class="truncate title truncate">농심과 수경인삼 연구계약</span>
+          <span class="date">2017.09.09</span>
         </div>
-        <div class="col s7 content truncate">
-          재배 분석 기술 1종 특허 취득한 한국 최초 스마트팜 농업회사 넥스트에이는 다음달 <br> 에열릴 농업인의 밤에 초청되어 한국의 ...
+        <div class="col s7 content">
+          넥스트 에이는 주식회사 농심과 수경인삼 연구계약을 체결했습니다. 수경인삼에 대해서는 아래 글을 살펴보시면 될 것 같습니다.
         </div>
       </li>
       <li class="row">
         <div class="col s1 number">04</div>
         <div class="col s4 title_">
-          <span class="truncate title">넥스트에이,  재배분석기술 인터뷰</span>
-          <span class="date">2017.08.01</span>
+          <span class="truncate title truncate">대교와 심층수를 이용한 딸기 재배 계약</span>
+          <span class="date">2017.09.09</span>
         </div>
-        <div class="col s7 content truncate">
-          재배 분석 기술 1종 특허 취득한 한국 최초 스마트팜 농업회사 넥스트에이는 다음달 <br> 에열릴 농업인의 밤에 초청되어 한국의 ...
+        <div class="col s7 content">
+          해양심층수는 태양광이 도달하지 않는 수심 200M 아래에 존재하여 수온이 항상 2C 이하를 유지하고 있는 청정 해수자원입니다.
         </div>
       </li>
       <li class="row">
         <div class="col s1 number">05</div>
         <div class="col s4 title_">
-          <span class="truncate title">넥스트에이,  재배분석기술 인터뷰</span>
-          <span class="date">2017.08.01</span>
+          <span class="truncate title truncate">넥스트에이 요즈마캠퍼스에서 낙점</span>
+          <span class="date">2016.11.01</span>
         </div>
-        <div class="col s7 content truncate">
-          재배 분석 기술 1종 특허 취득한 한국 최초 스마트팜 농업회사 넥스트에이는 다음달 <br> 에열릴 농업인의 밤에 초청되어 한국의 ...
+        <div class="col s7 content">
+          요즈마 캠퍼스는 1일 요쿠스, 넥스트-에이, 다인아트, 피직스 코리아 등 12개 스타트업이 요즈마스 픽 프로그램에 참여한다고 발표했다.
         </div>
       </li>
-      <li class="row">
+      <li class="row more">
         <div class="col s12">더보기</div>
       </li>
     </ul>
