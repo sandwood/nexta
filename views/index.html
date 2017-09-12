@@ -24,6 +24,7 @@
 
   <script>
     $(function() {
+      $('.goto_top').click(function(){gotoTop();});
       gotoTop();
       $('ul.news_wrapper li.row').click(function() {
         var Idx = $(this).index();
@@ -75,7 +76,14 @@
         var $target = target;
         var $targetA = $target.children("a");
         var targetCnt = $targetA.length;
-
+        var $scrollPosition = $target.offset().top;
+        console.log($scrollPosition);
+        if($scrollPosition > 800){
+          if($('.goto_top').hasClass('active') == false)
+            $('.goto_top').addClass('active');
+        } else{
+          $('.goto_top').removeClass('active');
+        }
         if (direction == "down") {
           var quickMenuTop = $quickMenu.offset().top + quickMenuHeight;
         } else if (direction == "up") {
@@ -83,6 +91,7 @@
         }
 
         for (var i = targetCnt; i > 0; i--) {
+          
           var moveText = $targetA.eq(i - 1).attr("href");
           var targetTop = $(moveText).offset().top;
 
@@ -124,7 +133,7 @@
           },
           ease: Power3.easeOut
         });
-      }, 500);
+      }, 100);
     }
   </script>
 </head>
@@ -290,6 +299,9 @@
       <dd><a href="010 9282 1670">MOBILE  010 3871 4515</a></dd>
       <dd><a href="mailto:econsulting@naver.com?Subject=From%20NextA%20Homepage">EMAIL  econsulting@naver.com</a></dd>
     </dl>
+  </div>
+  <div class="goto_top">
+    <img src="/static/img/arrow@2x.png" alt="">
   </div>
   <footer>
     <div>
