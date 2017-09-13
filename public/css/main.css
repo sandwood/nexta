@@ -485,8 +485,7 @@ footer {
   z-index: 100;
 }
 .goto_top.active{
-  opacity: 1;
-  display: inline;
+  display: none;
 }
 .goto_top img{
   margin-top: 21px;
@@ -530,6 +529,10 @@ footer span {
     width: 760px;
   }
   .goto_top{
+    display: inline;
+  }
+  .goto_top.active{
+    opacity: 1;
     display: inline;
   }
 }

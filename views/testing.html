@@ -11,15 +11,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/utils/Draggable.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/plugins/CSSPlugin.min.js"></script>
   <script>
-    $(function() {
-      var i, x, y,
-        gridRows = 3,
-        gridColumns = 1,
-        gridWidth = 375;
+    var i, x, y,
+      gridRows = 3,
+      gridColumns = 1,
+      gridWidth = 375;
 
+    $(function() {
+      update();
+    });
+    function update(){
       Draggable.create(".draggable", {
         bounds: $('#container'),
-        edgeResistance: 0.85,
+        edgeResistance: 1,
         type: "x,y",
         throwProps: true,
         lockAxis: true,
@@ -28,19 +31,16 @@
             return (snap || liveSnap) ? Math.round(endValue / gridWidth) * gridWidth : endValue;
           }
         },
-        onDragEnd: function() {
+        onRelease: function() {
           $(".draggable").each(function(index, element) {
             TweenLite.to(element, 0.5, {
               x: Math.round(element._gsTransform.x / gridWidth) * gridWidth,
-              delay: 0,
-              ease: Power4.easeInOut
+              delay: 0
             });
           });
         }
       });
-
-
-    });
+    }
   </script>
   <style>
     body {
