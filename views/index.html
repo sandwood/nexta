@@ -24,11 +24,8 @@
 
   <script>
     $(function() {
-      var map_height = $('.map_').css('height');
-      $('.map').css('height', map_height);
-      $(window).on('resize', function(){
-        $('.map').css('height', map_height);
-      })
+      $('.map').css('height', $('.map_').css('height'));
+      setTimeout(function(){$('.map').css('height', $('.map_').css('height'));}, 500);
       $('.goto_top').click(function() {
         gotoTop();
       });
@@ -65,6 +62,7 @@
       $quickMenu.addClass("active1");
 
       $(window).on("resize.quickMenu", function() {
+        $('.map').css('height', $('.map_').css('height'));
         if (this.resizeTO) {
           clearTimeout(this.resizeTO);
         }
@@ -334,7 +332,7 @@
     <div>
       경기도 용인시 기흥구 동백중앙로 225-6 쥬네브스타월드 B119호 &nbsp; | &nbsp; TEL 031-548-4515 &nbsp; | &nbsp; FAX 031-548-4517 &nbsp; | &nbsp; MAIL econsulting@naver.com
     </div>
-    <div>COPYROGHT 2009 <span>NEXTA COMPANY</span> ALLRIGHTS RESERVED</div>
+    <div class="footer_bot">COPYROGHT 2009 <span>NEXTA COMPANY</span> ALLRIGHTS RESERVED</div>
   </footer>
 
 

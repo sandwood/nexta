@@ -406,6 +406,7 @@ ul.news_wrapper .row:hover .title,
   letter-spacing: -1.3px;
   text-align: center;
   color: #ffffff;
+  padding: 0;
   transition: background-color 500ms;
 }
 
@@ -734,15 +735,21 @@ footer span {
   .news_wrapper .content {
     display: none;
   }
+  
+  .news_wrapper .row.more {
+    font-size: 18.7px;
+  }
   .contact .map {
     width: 100%;
     height: auto;
   }
   .contact .map img{
+    width: 100%;
   }
   .contact .info {
     max-width: 100%;
     margin-bottom: 0;
+    word-break: keep-all;
   }
   .contact .info dt {
     line-height: 1.5;
@@ -764,10 +771,6 @@ footer span {
     width: 100%;
     height: 60px;
   }
-  
-  .mobile_buttons .col{
-    height: 100%;
-  }
   .mobile_buttons .col:nth-child(2){
     border-left: 0.5px solid #dbdbdb;
     border-right: 0.5px solid #dbdbdb;
@@ -781,5 +784,9 @@ footer span {
   }
   footer{
     font-size: 10.1px;
+    padding: 1.25rem;
+  }
+  .footer_bot{
+    margin-top: 1rem;
   }
 }
