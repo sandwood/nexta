@@ -24,7 +24,14 @@
 
   <script>
     $(function() {
-      $('.goto_top').click(function(){gotoTop();});
+      var map_height = $('.map_').css('height');
+      $('.map').css('height', map_height);
+      $(window).on('resize', function(){
+        $('.map').css('height', map_height);
+      })
+      $('.goto_top').click(function() {
+        gotoTop();
+      });
       gotoTop();
       $('ul.news_wrapper li.row').click(function() {
         var Idx = $(this).index();
@@ -77,10 +84,10 @@
         var $targetA = $target.children("a");
         var targetCnt = $targetA.length;
         var $scrollPosition = $target.offset().top;
-        if($scrollPosition > 800){
-          if($('.goto_top').hasClass('active') == false)
+        if ($scrollPosition > 800) {
+          if ($('.goto_top').hasClass('active') == false)
             $('.goto_top').addClass('active');
-        } else{
+        } else {
           $('.goto_top').removeClass('active');
         }
         if (direction == "down") {
@@ -90,7 +97,7 @@
         }
 
         for (var i = targetCnt; i > 0; i--) {
-          
+
           var moveText = $targetA.eq(i - 1).attr("href");
           var targetTop = $(moveText).offset().top;
 
@@ -123,9 +130,10 @@
         }
       });
     });
-    function gotoTop(){
+
+    function gotoTop() {
       var $window = $(window);
-      setTimeout(function(){
+      setTimeout(function() {
         TweenMax.to($window, 2, {
           scrollTo: {
             y: 0
@@ -134,12 +142,18 @@
         });
       }, 100);
     }
+
   </script>
 </head>
 
 <body>
+  <div class="accessibility">
+    <a href="#about">본문 바로가기</a>
+  </div>
+
   <div class="row nav">
     <ul>
+      <h2>주메뉴</h2>
       <li><a href="#about">About</a></li>
       <li><a href="#service">Service</a></li>
       <li><a href="#tech">Tech</a></li>
@@ -148,23 +162,27 @@
       <li class="facebook"><a href="https://www.facebook.com/Jupiter701205/" target="_blank"><svg viewBox="0 0 512 512"><path d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z"/></svg></a></li>
     </ul>
   </div>
+  <div class="row mobile_nav"></div>
+
   <div id="about" class="scrollspy">
+    <h2>회사소개</h2>
     <div class="row about_top">
       <div class="col center main_logo">
-        <img class="logo" width="155.55px" src="/static/img/ci@2x.png" alt="">
+        <img class="logo" width="155.55px" src="/static/img/ci@2x.png" alt="넥스트에이로고">
       </div>
       <div class="col s12 about_bg"></div>
       <div class="col s12 about_txt">
-        <img width="918px" src="/static/img/main_txt.png" alt="">
+        <img class="about_txt_img" width="918px" src="/static/img/main_txt.png" alt="We create the next generation of agriculture">
+        <img class="about_txt_img_mobile" src="/static/img/txt@2x.png" alt="넥스트에이로고 모바일">
       </div>
     </div>
     <div class="row about_bot">
       <div class="col s12 about_bg">
         <div class="col s12 about_content">
           <div class="row three_icons">
-            <img width="54px" height="54px" src="/static/img/icon-01@2x.png" alt="">
-            <img width="54px" height="54px" src="/static/img/icon-02@2x.png" alt="">
-            <img width="54px" height="54px" src="/static/img/icon-03@2x.png" alt="">
+            <img width="54px" height="54px" src="/static/img/icon-01@2x.png" alt="잎사귀모양 아이콘">
+            <img width="54px" height="54px" src="/static/img/icon-02@2x.png" alt="전구모양 아이콘">
+            <img width="54px" height="54px" src="/static/img/icon-03@2x.png" alt="집안에와이파이모양 아이콘">
           </div>
           <div class="row bar"></div>
           <div class="row about_txt">
@@ -175,10 +193,11 @@
     </div>
   </div>
   <div id="service" class="row service scrollspy">
-    <h2>COMPANY <span>SERVICE</span></h2>
+    <h2>회사 서비스</h2>
+    <div class="h_title_">COMPANY <span>SERVICE</span></div>
     <div class="service_top">
       <div class="swiper-container">
-        <div class="swiper-wrapper ">
+        <div class="swiper-wrapper">
           <div class="swiper-slide"><img height="503px" src="/static/img/service-pic-01@2x.jpg" alt=""></div>
           <div class="swiper-slide"><img height="503px" src="/static/img/2.jpg" alt=""></div>
         </div>
@@ -203,32 +222,35 @@
       </dl>
     </div>
   </div>
+
   <div class="border"></div>
+
   <div id="tech" class="row tech scrollspy">
-    <h2>COMPANY <span>TECH</span></h2>
+    <h2>회사 테크놀로지</h2>
+    <div class="h_title_">COMPANY <span>TECH</span></div>
     <div class="tech_bg">
       <div class="tech_txt">
-        <div class="history_2016 row">
-          <div class="col left">2016</div>
-          <div class="col right">
-            PFF(Pure Farm Factory), Green Mate, Next Farmer 상표권 <br> 3종 출원 및 등록<br>
-            <br> 독립모듈형 개인화 식물재배기 및 독립모듈형 개인화 식물재배기 기반<br> 식물공장시스템 포함 Smart Farm 관련 특허 7종 출원<br>
-            <br> 음파를 이용한 새싹채소의 비타민 C함량을 증가시키는 방법 포함<br> 대사체 생산농업관련 특허 3종 취득( 대한민국 농촌진흥청 통상실시권)
-          </div>
-        </div>
-        <div class="history_2017 row">
-          <div class="col left">2017</div>
-          <div class="col right">
-            이미지분석을 이용한 지능형 PH측정장치 및 방법 <br> Smart Farm관련 특허 1종 출원<br>
+        <dl class="history_2016 row">
+          <dt class="col left">2016</dt>
+          <dd class="col right">
+            PFF(Pure Farm Factory), Green Mate, Next Farmer 상표권 3종 출원 및 등록<br>
+            <br> 독립모듈형 개인화 식물재배기 및 독립모듈형 개인화 식물재배기 기반 식물공장시스템 포함 Smart Farm 관련 특허 7종 출원<br>
+            <br> 음파를 이용한 새싹채소의 비타민 C함량을 증가시키는 방법 포함 대사체 생산농업관련 특허 3종 취득( 대한민국 농촌진흥청 통상실시권)
+          </dd>
+        </dl>
+        <dl class="history_2017 row">
+          <dt class="col left">2017</dt>
+          <dd class="col right">
+            이미지분석을 이용한 지능형 PH측정장치 및 방법 Smart Farm관련 특허 1종 출원<br>
             <br> 대사체 생산농업 관련 특허 1종 출원
-          </div>
-        </div>
+          </dd>
+        </dl>
       </div>
     </div>
   </div>
-
   <div id="news" class="row news scrollspy">
-    <h2>COMPANY <span>NEWS</span></h2>
+    <h2>회사 뉴스</h2>
+    <div class="h_title_">COMPANY <span>NEWS</span></div>
     <ul class="news_wrapper">
       <li class="row">
         <div class="col s1 number">01</div>
@@ -286,22 +308,28 @@
     </ul>
   </div>
   <div id="contact" class="row contact scrollspy">
-    <h2>COMPANY <span>US</span></h2>
+    <h2>회사 약도 및 연락처</h2>
+    <div class="h_title_">COMPANY <span>US</span></div>
     <div class="map">
-      <a href="http://map.naver.com/?searchCoord=baea92d26019f6d6e282fba587e56d6252a79fc7168d0ccf8934cdb63f36ab61&query=6rK96riw64%2BEIOyaqeyduOyLnCDquLDtnaXqtawg64%2BZ67Cx7KSR7JWZ66GcIDIyNS02&menu=location&tab=1&lng=f2dec7782dc3458d6b3618fd217a0259&mapMode=0&mpx=09650510%3A37.4887635%2C127.0190942%3AZ11%3A0.0311531%2C0.0142228&lat=8579e1413cd4626a1db64e3a181cb10b&dlevel=12&enc=b64" target="_blank"><img class="responsive-img" src="/static/img/map-pic@2x.jpg" alt=""></a>
+      <a href="http://map.naver.com/?searchCoord=baea92d26019f6d6e282fba587e56d6252a79fc7168d0ccf8934cdb63f36ab61&query=6rK96riw64%2BEIOyaqeyduOyLnCDquLDtnaXqtawg64%2BZ67Cx7KSR7JWZ66GcIDIyNS02&menu=location&tab=1&lng=f2dec7782dc3458d6b3618fd217a0259&mapMode=0&mpx=09650510%3A37.4887635%2C127.0190942%3AZ11%3A0.0311531%2C0.0142228&lat=8579e1413cd4626a1db64e3a181cb10b&dlevel=12&enc=b64" target="_blank"><img class="map_ responsive-img" src="/static/img/map-pic@2x.jpg" alt=""></a>
     </div>
     <dl class="info">
-      <dt>
-                <span class="left">경기도 용인시 기흥구 동백중앙로 225-6 쥬네브스타월드 B119호</span> <span class="right">대표이사 : 주종문</span>
-            </dt>
-      <dd><a href="tel:031 548 4515">TEL  031 548 4515</a></dd>
-      <dd><a href="010 9282 1670">MOBILE  010 3871 4515</a></dd>
-      <dd><a href="mailto:econsulting@naver.com?Subject=From%20NextA%20Homepage">EMAIL  econsulting@naver.com</a></dd>
+      <dt><span class="left">경기도 용인시 기흥구 동백중앙로 225-6 쥬네브스타월드 B119호</span> <span class="right">대표이사 : 주종문</span></dt>
+      <dd><a class="contacts" href="tel:031 548 4515">TEL  031 548 4515</a></dd>
+      <dd><a class="contacts" href="tel:010 9282 1670">MOBILE  010 3871 4515</a></dd>
+      <dd><a class="contacts" href="mailto:econsulting@naver.com?Subject=From%20NextA%20Homepage">EMAIL  econsulting@naver.com</a></dd>
     </dl>
+    <div class="mobile_buttons row">
+      <div class="col s4"><a href="mailto:econsulting@naver.com?Subject=From%20NextA%20Homepage"><img src="static/img/mail-icon@2x.png" alt=""><br>이메일 보내기</a></div>
+      <div class="col s4"><a href="tel:031 548 4515"><img src="static/img/phone-icon@2x.png" alt=""><br>회사 전화 연결</a></div>
+      <div class="col s4"><a href="tel:010 9282 1670"><img src="static/img/man-icon@2x.png" alt=""><br>담당자 연결</a></div>
+    </div>
   </div>
+
   <div class="goto_top">
-    <img src="/static/img/arrow@2x.png" alt="">
+    <img src="/static/img/arrow@2x.png" alt="처음으로가기버튼">
   </div>
+
   <footer>
     <div>
       경기도 용인시 기흥구 동백중앙로 225-6 쥬네브스타월드 B119호 &nbsp; | &nbsp; TEL 031-548-4515 &nbsp; | &nbsp; FAX 031-548-4517 &nbsp; | &nbsp; MAIL econsulting@naver.com
@@ -317,6 +345,7 @@
       slidesPerView: 1,
       grabCursor: true
     });
+
   </script>
 
 </body>
