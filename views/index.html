@@ -24,12 +24,15 @@
 
   <script>
     $(function() {
-      $('.map').css('height', $('.map_').css('height'));
-      setTimeout(function(){$('.map').css('height', $('.map_').css('height'));}, 500);
+      setTimeout(function(){
+        $('.map').css('height', $('.map_').css('height'));
+        find_nav();
+        gotoTop();
+      }, 500);
+      
       $('.goto_top').click(function() {
         gotoTop();
       });
-      gotoTop();
       $('ul.news_wrapper li.row').click(function() {
         var Idx = $(this).index();
         if (Idx == 0)
@@ -49,38 +52,21 @@
       $('.scrollspy').scrollSpy({
         scrollOffset: 0
       });
+      
       var $quickMenu = $(".nav");
-      var quickMenuWidth = $quickMenu.width();
       var quickMenuHeight = $quickMenu.height();
-      var $quickMenuA = $quickMenu.children("a");
       var previdx = 1;
       var lastScroll = 0;
       var speed = 100;
       var top = parseInt($quickMenu.css("top"));
       var time = 0;
 
-      $quickMenu.addClass("active1");
-
-      $(window).on("resize.quickMenu", function() {
+      $(window).on("resize", function() {
         $('.map').css('height', $('.map_').css('height'));
-        if (this.resizeTO) {
-          clearTimeout(this.resizeTO);
-        }
-        this.resizeTO = setTimeout(function() {
-          $(this).trigger('resizeEnd');
-        }, 500);
-      });
-      $(window).trigger("resizeEnd.quickMenu");
-
-      $quickMenuA.click(function(event) {
-        event.preventDefault();
-        //}
       });
 
       function scrollClass(target, direction) {
         var $target = target;
-        var $targetA = $target.children("a");
-        var targetCnt = $targetA.length;
         var $scrollPosition = $target.offset().top;
         if ($scrollPosition > 800) {
           if ($('.goto_top').hasClass('active') == false)
@@ -93,27 +79,18 @@
         } else if (direction == "up") {
           var quickMenuTop = $quickMenu.offset().top;
         }
-
-        for (var i = targetCnt; i > 0; i--) {
-
-          var moveText = $targetA.eq(i - 1).attr("href");
-          var targetTop = $(moveText).offset().top;
-
-          if (quickMenuTop >= targetTop) {
-            $quickMenu.removeClass("active" + previdx);
-            $quickMenu.addClass("active" + i);
-            previdx = i;
-            break;
-          }
-        }
       }
-      $(window).on("scroll.quickMenu", function() {
+      $(window).on("scroll", function() {
+        find_nav();
+        if($(window).scrollTop() > 2075){
+          $('.nav_mobile ul li a.active').removeClass('active');
+          $('.nav_mobile ul li:nth-child(5) a').addClass('active');
+        }
         if (new Date().getTime() - time >= speed) {
           time = new Date().getTime();
           var scrollPx = $(this).scrollTop();
           var myTop = scrollPx + top;
           var max = $('body').height() - quickMenuHeight;
-
           if (myTop < max) {
             $quickMenu.css('top', myTop);
             if (scrollPx > lastScroll) {
@@ -128,17 +105,24 @@
         }
       });
     });
-
+    function find_nav(){
+      var $quickMenu = $(".nav");
+      for(var i=1; i<$quickMenu.children().children().length-1; i++ ){
+        if($('.nav'+i).hasClass('active')){
+          $('.nav_mobile li:nth-child('+i+') a').addClass('active');
+        }
+        else{
+          $('.nav_mobile li:nth-child('+i+') a').removeClass('active');
+        }
+      }
+    }
     function gotoTop() {
-      var $window = $(window);
-      setTimeout(function() {
-        TweenMax.to($window, 2, {
-          scrollTo: {
-            y: 0
-          },
-          ease: Power3.easeOut
-        });
-      }, 100);
+      TweenMax.to($(window), 2, {
+        scrollTo: {
+          y: 0
+        },
+        ease: Power3.easeOut
+      });
     }
 
   </script>
@@ -148,19 +132,26 @@
   <div class="accessibility">
     <a href="#about">본문 바로가기</a>
   </div>
-
+  <div class="row nav_mobile">
+    <ul>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
   <div class="row nav">
     <ul>
       <h2>주메뉴</h2>
-      <li><a href="#about">About</a></li>
-      <li><a href="#service">Service</a></li>
-      <li><a href="#tech">Tech</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a class="nav1" href="#about">About</a></li>
+      <li><a class="nav2" href="#service">Service</a></li>
+      <li><a class="nav3" href="#tech">Tech</a></li>
+      <li><a class="nav4" href="#news">News</a></li>
+      <li><a class="nav5" href="#contact">Contact</a></li>
       <li class="facebook"><a href="https://www.facebook.com/Jupiter701205/" target="_blank"><svg viewBox="0 0 512 512"><path d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z"/></svg></a></li>
     </ul>
   </div>
-  <div class="row mobile_nav"></div>
 
   <div id="about" class="scrollspy">
     <h2>회사소개</h2>
@@ -343,7 +334,6 @@
       slidesPerView: 1,
       grabCursor: true
     });
-
   </script>
 
 </body>
