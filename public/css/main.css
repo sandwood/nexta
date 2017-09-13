@@ -470,8 +470,29 @@ footer {
   background-color: #3a3a3a;
 }
 
+
 .goto_top{
   display: none;
+  width: 60px;
+  height: 60px;
+  background-color: #eff2f4;
+  display: none;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  bottom: 10vh;
+  transition: all 500ms;
+  z-index: 100;
+}
+.goto_top.active{
+  opacity: 1;
+  display: inline;
+}
+.goto_top img{
+  margin-top: 21px;
+  margin-left: 13px;
+  width: 35px;
+  height: 18px;
 }
 footer span {
   color: #98bf02;
@@ -484,7 +505,7 @@ footer span {
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1071px) {
+@media screen and (min-width: 769px) and (max-width: 1071px) {
   html {
     font-size: 80%;
   }
@@ -508,38 +529,12 @@ footer span {
   .about_top .about_txt img {
     width: 760px;
   }
-  .history_2016 {
-    width: calc(100% - 4rem);
-    right: 2rem;
-  }
-  .history_2017 {
-    width: calc(100% - 4rem);
-    right: 2rem;
-  }
   .goto_top{
-    width: 60px;
-    height: 60px;
-    background-color: #eff2f4;
-    display: none;
-    opacity: 0;
-    position: fixed;
-    right: 0;
-    bottom: 10vh;
-    transition: all 500ms;
-  }
-  .goto_top.active{
-    opacity: 1;
     display: inline;
-  }
-  .goto_top img{
-    margin-top: 21px;
-    margin-left: 13px;
-    width: 35px;
-    height: 18px;
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .service_top,
   .service_bot {
     max-width: 100%;
@@ -550,6 +545,14 @@ footer span {
   .border {
     width: 70%;
   }
+  .history_2016 {
+    width: calc(100% - 4rem);
+    right: 2rem;
+  }
+  .history_2017 {
+    width: calc(100% - 4rem);
+    right: 2rem;
+  }
   .contact .map {
     width: 100%;
     height: auto;
@@ -559,11 +562,5 @@ footer span {
   }
   .about_top .about_txt img {
     width: 70%;
-  }
-  .history_2016 {
-    right: 20vw;
-  }
-  .history_2017 {
-    right: 20vw;
   }
 }
