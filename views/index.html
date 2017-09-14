@@ -86,6 +86,9 @@
           $('.nav_mobile ul li a.active').removeClass('active');
           $('.nav_mobile ul li:nth-child(5) a').addClass('active');
         }
+        else{
+          $('.nav_mobile ul li:nth-child(5) a').removeClass('active');
+        }
         if (new Date().getTime() - time >= speed) {
           time = new Date().getTime();
           var scrollPx = $(this).scrollTop();
