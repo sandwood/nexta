@@ -150,7 +150,7 @@ dd {
 }
 
 .about_top .about_txt img {
-  width: 918px;
+  width: 860px;
 }
 
 .about_bot {
@@ -168,7 +168,7 @@ dd {
 .about_bot .about_content {
   float: none;
   width: 100%;
-  padding-top: 2.34rem;
+  padding-top: 3.75rem;
   max-width: 765px;
   margin: 0 auto;
 }
@@ -220,7 +220,7 @@ dd {
 .service_top,
 .service_bot {
   width: 100%;
-  max-width: 1072px;
+  max-width: 860px;
   margin: 0 auto;
 }
 
@@ -259,7 +259,7 @@ dd {
   margin-left: auto;
   margin-right: auto;
   margin-top: 4.03rem;
-  width: 1008px;
+  width: 820px;
   height: 1px;
   background-color: #bfbfbf;
 }
@@ -277,7 +277,7 @@ dd {
 
 .tech_bg {
   width: 100%;
-  height: 32.25rem;
+  height: 30rem;
   background: url(../img/tech-pic@2x.jpg) no-repeat;
   background-size: cover;
   position: relative;
@@ -335,7 +335,7 @@ dd {
 }
 
 ul.news_wrapper {
-  width: 1072px;
+  width: 860px;
   margin: 0 auto;
 }
 
@@ -412,7 +412,7 @@ ul.news_wrapper .row:hover .title,
 }
 
 .news_wrapper .row.more:hover {
-  background-color: #98bf02;
+  background-color: #7c7c7c;
 }
 
 .contact {
@@ -429,13 +429,13 @@ ul.news_wrapper .row:hover .title,
 .contact .map {
   width: 100%;
   margin: 0 auto;
-  max-width: 1072px;
+  max-width: 860px;
   height: 548.25px;
 }
 
 .contact .info {
   width: 100%;
-  max-width: 1072px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 1.31rem 2.20rem;
   background-color: #fdfff8;
@@ -556,7 +556,7 @@ footer span {
 @media screen and (min-width: 1072px) {
   html {
     font-family: 'Noto Sans KR', sans-serif;
-    font-size: 100%;
+    font-size: 80%;
   }
 }
 
@@ -604,7 +604,7 @@ footer span {
     position: fixed;
     right: 14.5px;
     z-index: 1000;
-    top: 25vh;
+    top: calc(50vh - 35px);
   }
   .nav_mobile ul li a{
     width: 7.5px;
@@ -621,18 +621,18 @@ footer span {
     width: 92.5px;
   }
   .about_top .about_bg {
-    background: url(../img/main-pic@2x.jpg) no-repeat 42%;
+    background: url(../img/about-m@2x.jpg) no-repeat;
     background-size: cover;
   }
   .about_top .about_txt {
     height: 292.5px;
-    top: 1.75rem;
+    top: 3.75rem;
   }
   .about_top .about_bg {
     height: 292.5px;
   }
   .about_top .main_logo {
-    top: 18.5px;
+    top: 40.5px;
   }
   .about_top .about_txt img {
     width: 100%;
@@ -801,6 +801,7 @@ footer span {
   }
   .mobile_buttons.row a{
     color: #fff;
+    display: block;
     font-size: 12px;
   }
   .mobile_buttons img{

@@ -46,7 +46,7 @@
         else if (Idx == 4)
           window.open('http://news.hankyung.com/article/2016110129011?nv=o', '_blank');
         else if (Idx == 5)
-          $(this).remove();
+          return
       })
 
       $('.scrollspy').scrollSpy({
@@ -68,12 +68,7 @@
       function scrollClass(target, direction) {
         var $target = target;
         var $scrollPosition = $target.offset().top;
-        if ($scrollPosition > 800) {
-          if ($('.goto_top').hasClass('active') == false)
-            $('.goto_top').addClass('active');
-        } else {
-          $('.goto_top').removeClass('active');
-        }
+        
         if (direction == "down") {
           var quickMenuTop = $quickMenu.offset().top + quickMenuHeight;
         } else if (direction == "up") {
@@ -82,6 +77,12 @@
       }
       $(window).on("scroll", function() {
         find_nav();
+        if ($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+          if ($('.goto_top').hasClass('active') == false)
+            $('.goto_top').addClass('active');
+        } else {
+          $('.goto_top').removeClass('active');
+        }
         if($(window).scrollTop() > 2075){
           $('.nav_mobile ul li a.active').removeClass('active');
           $('.nav_mobile ul li:nth-child(5) a').addClass('active');
@@ -95,7 +96,7 @@
           var myTop = scrollPx + top;
           var max = $('body').height() - quickMenuHeight;
           if (myTop < max) {
-            $quickMenu.css('top', myTop);
+            $quickMenu.css('top', myTop-100);
             if (scrollPx > lastScroll) {
               //scroll down
               scrollClass($quickMenu, "down");
@@ -120,12 +121,7 @@
       }
     }
     function gotoTop() {
-      TweenMax.to($(window), 2, {
-        scrollTo: {
-          y: 0
-        },
-        ease: Power3.easeOut
-      });
+      $('html,body').scrollTop(0);
     }
 
   </script>
@@ -191,8 +187,8 @@
       <li class="service_top">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img height="503" src="/static/img/service-pic-01@2x.jpg" alt=""></div>
-            <div class="swiper-slide"><img height="503" src="/static/img/2.jpg" alt=""></div>
+            <div class="swiper-slide"><img height="403" src="/static/img/service-pic-01@2x.jpg" alt=""></div>
+            <div class="swiper-slide"><img height="403" src="/static/img/2.jpg" alt=""></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
@@ -204,8 +200,8 @@
       <li class="service_bot">
         <div class="swiper-container">
           <div class="swiper-wrapper ">
-            <div class="swiper-slide"><img height="503" src="/static/img/service-pic-02@2x.jpg" alt=""></div>
-            <div class="swiper-slide"><img height="503" src="/static/img/3.jpg" alt=""></div>
+            <div class="swiper-slide"><img height="403" src="/static/img/service-pic-02@2x.jpg" alt=""></div>
+            <div class="swiper-slide"><img height="403" src="/static/img/3.jpg" alt=""></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
