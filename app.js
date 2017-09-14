@@ -19,7 +19,7 @@ app.use('/', homeRouter);
 app.use('/', testingRouter);
 app.use('/robots.txt', function(req, res) {
     res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /");
+    res.send("User-agent: *\nAllow: /");
 });
 app.listen(3000, function(){
     console.log('Server is running at 3000!');
