@@ -60,7 +60,7 @@ dd {
   position: absolute;
   right: 0;
   top: 37vh;
-  font-size: .75rem;
+  font-size: .9rem;
   font-weight: bold;
   z-index: 100;
   border: 1px solid #607213;
@@ -407,7 +407,8 @@ ul.news_wrapper .row:hover .title,
   line-height: 2.19;
   letter-spacing: -1.3px;
   text-align: center;
-  color: #ffffff;
+  color: #a2a2a2;
+  border: solid 0.5px #5b5b5b;
   transition: background-color 500ms;
 }
 
@@ -681,7 +682,7 @@ footer span {
     font-weight: bold;
   }
   .swiper-container .swiper-wrapper .swiper-slide img {
-    height: 238.5px;
+    height: 150px;
   }
   .swiper-pagination-bullet {
     width: 7px !important;
