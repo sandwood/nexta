@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 .row .col {
   padding: 0;
 }
@@ -47,6 +48,7 @@ dd {
   font-size: 2.1rem;
   color: #3a3a3a;
   letter-spacing: -1.8px;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 .h_title_ span {
@@ -557,6 +559,10 @@ footer span {
 @media screen and (min-width: 1072px) {
   html {
     font-family: 'Noto Sans KR', sans-serif;
+    font-size: 80%;
+  }
+  .noto_eng{
+    font-family: 'Noto Sans', sans-serif;
     font-size: 80%;
   }
 }
