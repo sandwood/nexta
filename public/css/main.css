@@ -682,7 +682,8 @@ footer span {
     font-weight: bold;
   }
   .swiper-container .swiper-wrapper .swiper-slide img {
-    height: 150px;
+    width: 100%;
+    height: auto;
   }
   .swiper-pagination-bullet {
     width: 7px !important;
