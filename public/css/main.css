@@ -748,11 +748,11 @@ footer span {
   .history_2016 .left,
   .history_2017 .left {
     font-size: 14px;
-    width: 42px;
+    width: 20%;
   }
   .history_2016 .right,
   .history_2017 .right {
-    width: 226px;
+    width: 80%;
     font-size: 12px;
   }
   .history_2017 {
