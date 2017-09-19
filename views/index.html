@@ -36,17 +36,23 @@
       $('ul.news_wrapper li.row').click(function() {
         var Idx = $(this).index();
         if (Idx == 0)
-          window.open('https://brunch.co.kr/@jupiter/124', '_blank');
+          window.open('https://brunch.co.kr/@jupiter/128', '_blank');
         else if (Idx == 1)
-          window.open('https://brunch.co.kr/@jupiter/123', '_blank');
+          window.open('https://brunch.co.kr/@jupiter/127', '_blank');
         else if (Idx == 2)
-          window.open('https://brunch.co.kr/@jupiter/122', '_blank');
+          window.open('https://brunch.co.kr/@jupiter/124', '_blank');
         else if (Idx == 3)
-          window.open('https://brunch.co.kr/@jupiter/121', '_blank');
+          window.open('https://brunch.co.kr/@jupiter/123', '_blank');
         else if (Idx == 4)
-          window.open('http://news.hankyung.com/article/2016110129011?nv=o', '_blank');
+          window.open('https://brunch.co.kr/@jupiter/122', '_blank');
         else if (Idx == 5)
-          return
+          window.open('https://brunch.co.kr/@jupiter/121', '_blank');
+        else if (Idx == 6)
+          window.open('http://news.hankyung.com/article/2016110129011?nv=o', '_blank');
+        else if (Idx == 7)
+          $('.news_wrapper .row:nth-child(1n+6)').slideToggle();
+          $(this).css('background-color','#7c7c7c');
+          $(this).css('color','#a2a2a2');
       })
 
       $('.scrollspy').scrollSpy({
@@ -243,6 +249,26 @@
     <h2>회사 뉴스</h2>
     <div class="h_title_">COMPANY <span>NEWS</span></div>
     <ul class="news_wrapper">
+      <li class="row">
+        <div class="col s1 number">07</div>
+        <div class="col s4 title_">
+          <span class="truncate title ">중국 애그리가든과 MOU 체결</span>
+          <span class="date">2017.09.19</span>
+        </div>
+        <div class="col s7 content">
+          중국 농업과학 투자기업 애그리가든과 전략적 업무제휴 협약서 체결
+        </div>
+      </li>
+      <li class="row">
+        <div class="col s1 number">06</div>
+        <div class="col s4 title_">
+          <span class="truncate title ">중국 애그리가든과 스마트팜 컨설팅 계약 </span>
+          <span class="date">2017.09.19</span>
+        </div>
+        <div class="col s7 content">
+          중국농업과학원산하 애그리가든 시설원예 과기유한공사와 스마트팜 컨설팅계약
+        </div>
+      </li>
       <li class="row">
         <div class="col s1 number">05</div>
         <div class="col s4 title_">
