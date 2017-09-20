@@ -24,11 +24,12 @@
 
   <script>
     $(function() {
-      $('<img />').load( function(){
+      setTimeout(function(){
         $('.map').css('height', $('.map_').css('height'));
         find_nav();
         gotoTop();
-      });
+      }, 1500);
+      
       $('.goto_top').click(function() {
         gotoTop();
       });
